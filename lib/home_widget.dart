@@ -14,37 +14,56 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.purple,
         centerTitle: true,
-        title: Text(
-          "Contador",
+        title: const Text(
+          'ADD or REMOVE',
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Stack(
         children: [
-          Text('Aumente ou diminua o valor'),
-          Row(
+          SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Image.network(
+                'https://img.freepik.com/premium-photo/purple-watercolor-background_3590-12.jpg',
+                fit: BoxFit.cover,
+              )),
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              IconButton(
-                  onPressed: () {
-                    setState(() {
-                      counter--;
-                    });
-                  },
-                  icon: Icon(Icons.remove)),
-              Text("$counter"),
-              IconButton(
-                  onPressed: () {
-                    setState(() {
-                      counter++;
-                    });
-                  },
-                  icon: Icon(Icons.add))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          counter--;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.remove_circle,
+                        color: Colors.purple,
+                      )),
+                  Text(
+                    "$counter",
+                    style: const TextStyle(color: Colors.purple, fontSize: 30),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          counter++;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.add_circle,
+                        color: Colors.purple,
+                      ))
+                ],
+              ),
             ],
           ),
         ],
