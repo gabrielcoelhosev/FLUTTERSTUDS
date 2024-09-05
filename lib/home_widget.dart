@@ -1,3 +1,4 @@
+import 'package:contador/home_widget_dark.dart';
 import 'package:flutter/material.dart';
 
 class HomeWidget extends StatefulWidget {
@@ -20,16 +21,23 @@ class _HomeWidgetState extends State<HomeWidget> {
           'ADD or REMOVE',
           style: TextStyle(color: Colors.white),
         ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HomeWidDark()),
+              );
+            },
+            icon: const Icon(
+              Icons.dark_mode,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       body: Stack(
         children: [
-          SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: Image.network(
-                'https://img.freepik.com/premium-photo/purple-watercolor-background_3590-12.jpg',
-                fit: BoxFit.cover,
-              )),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
